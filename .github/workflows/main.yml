@@ -35,6 +35,14 @@ jobs:
           ls
           sudo apt install gcc-mips-linux-gnu
           mips-linux-gnu-gcc -EB -march=34kc -Wl,--dynamic-linker=/lib/ld-musl-mips-sf.so.1 test.c -o test
+          git clone https://github.com/libimobiledevice/libplist.git
+          cd libplist
+          ./autogen.sh
+          CFLAGS="-EB -march=34kc -Wl,--dynamic-linker=/lib/ld-musl-mips-sf.so.1" make
+          
+          git clone https://github.com/ProcursusTeam/ldid/
+          cd ldid
+          mips-linux-gnu-gcc -EB -march=34kc -Wl,--dynamic-linker=/lib/ld-musl-mips-sf.so.1 ldid.cpp -o ldid -L/usr/lib -lcrypto $(shell pkg-config --libs libplist-2.0)
           ls
           
           
