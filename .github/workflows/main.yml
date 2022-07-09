@@ -33,7 +33,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           ls
-          sudo apt install gcc-mips-linux-gnu
+          sudo apt install gcc-mips-linux-gnu g++
           mips-linux-gnu-gcc -EB -march=34kc -Wl,--dynamic-linker=/lib/ld-musl-mips-sf.so.1 test.c -o test
           git clone https://github.com/libimobiledevice/libplist.git
           cd libplist
