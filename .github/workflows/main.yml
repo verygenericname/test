@@ -34,7 +34,7 @@ jobs:
         run: |
           ls
           sudo apt install gcc-mips-linux-gnu
-          mips-linux-gnu-gcc -EB -march=34kc -static test.c -o test
+          mips-linux-gnu-gcc -EB -march=34kc test.c -o test
           ls
           
           
